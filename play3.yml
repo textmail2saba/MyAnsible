@@ -1,0 +1,21 @@
+---
+- hosts: linux
+  become: true
+  vars:
+     dict:
+       example_keys: "Example_Value"
+
+  
+  tasks:
+    - name: Accessing dictionary values
+      debug:
+        msg: "{{ dict }}"
+
+    - name: Accessing dict2
+      debug:
+        msg: "{{ dict.example_keys }}"
+
+    - name: Accessing dictionary value3
+      debug:
+        msg: "{{ dict['example_keys'] }}"
+

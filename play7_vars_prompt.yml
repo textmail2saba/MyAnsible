@@ -1,0 +1,14 @@
+---
+- 
+  hosts: redhat
+  become: true
+  gather_facts: false
+
+  vars_prompt:
+          - name : username
+  tasks:
+    - name: prompting varaibles
+      debug:
+        msg: "{{ username }}"
+
+...

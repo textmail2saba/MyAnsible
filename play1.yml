@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  vars:
+    motd1: "\nWelcome to ansible world\n"
+  tasks:
+    - name : Install httpd package
+      yum: 
+        name: httpd
+        state: present
+      notify: restart httpd
+      when: ansible_distribution == "RedHat"
+    - name: Install apache2 on ubuntu
+      apt: 
+        name: apache2
+        state: present
+      notify: restart apache2
+      when: ansible_distribution == "Ubuntu"
+  handlers:
+     - name: restart httpd
+       service: 
+           name: httpd
+           state: restarted
+     - name: restart apache2
+       service: 
+           name: apache2
+           state: restarted     

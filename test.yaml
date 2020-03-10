@@ -1,0 +1,6 @@
+---
+ - hosts:
+   tasks:
+     yum:
+       - example_key1: this is test1
+         example_key2: this is test2

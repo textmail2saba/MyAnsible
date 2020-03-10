@@ -1,0 +1,39 @@
+---
+- 
+  hosts: redhat
+  become: true
+  gather_facts: false
+  
+    
+  vars_files:
+     - external_vars.yml
+     
+  tasks:
+    - name: accessing value type1
+      debug:
+        msg: "{{ external_example_key }}"
+
+    - name: accessing value typ2
+      debug: 
+        msg: "{{ external_dict }}"
+
+    - name: accessing value typ3
+      debug: 
+        msg: "{{ external_dict.dict_key }}"
+    - name: test external named inline dictionary
+      debug: 
+        msg: "{{ external_inline_dict }}"
+    - name: test external named inline dictionary key value with dot notation
+      debug:
+        msg: "{{ external_inline_dict.inline_dict_key }}" 
+    - name: test external named inline dictionary key value with brace notation
+      debug:
+        msg: "{{ external_inline_dict['inline_dict_key'] }}"
+
+    - name: Test external named list
+      debug:
+        msg: "{{ external_inline_named_list }}"
+...
+
+
+
