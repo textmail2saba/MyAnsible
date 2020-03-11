@@ -1,0 +1,15 @@
+---
+-
+  hosts: linux
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Test hostvars with an ansible fact and collect ansible_prt,dot notation, default if not found
+      debug:
+        msg: "{{ hostvars[ansible_hostname].ansible_port| default('') }}"
+
+    - name: test hostvars with an ansible fact and collect ansible_portmdict notation default
+      debug:
+        msg: "{{ hostvars[item]['ansible_eth1']['ipv4']['address']| default('') }}"
+...  

@@ -1,0 +1,7 @@
+---
+-
+   hosts: linux
+   tasks:
+      - name: Gather Local Facts
+        debug:
+          msg: . {{ ansible_local }} . {{ ansible_domain }}

@@ -1,0 +1,16 @@
+---
+-
+  hosts: linux
+  become: true
+  gather_facts: true
+
+  tasks:
+   - name: "Build hosts file"
+     debug:
+       msg:  System {{ ansible_user }}   {{ ansible_user_uid }}   {{ ansible_user_dir }} {{ ansible_userspace_architecture }}
+     when: ansible_default_ipv4.gateway is defined
+
+   - name: Display all hostnames
+     debug:
+       var: hostvars[inventory_hostname]
+       verbosity: 2

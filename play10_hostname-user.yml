@@ -1,0 +1,10 @@
+---
+- 
+  hosts: linux
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Display hostname and user
+      debug:
+        msg: "{{ hostvar[ansible_hostname].ansible_user }}"

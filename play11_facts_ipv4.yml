@@ -1,0 +1,11 @@
+---
+- 
+  hosts: linux
+  gather_facts: true
+
+  tasks:
+     - name: Gather facts
+       debug:
+               msg: System {{ ansible_default_ipv4.address }} has {{ ansible_default_ipv4['gateway'] }} and its machine id {{ ansible_machine_id }}
+
+...
