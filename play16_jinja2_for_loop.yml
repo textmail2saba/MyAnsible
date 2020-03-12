@@ -1,0 +1,12 @@
+---
+-
+   hosts: linux
+   tasks:
+     - name: Jinja2 for loop
+       debug:
+         msg: > 
+               --== Ansible Jinja2 for statement ==--
+               {% for entry in range(1, 11) -%}
+                 {{ entry }}
+               {% endfor %}
+...

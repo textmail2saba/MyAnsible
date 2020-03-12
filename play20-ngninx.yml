@@ -1,0 +1,29 @@
+---
+-
+   hosts: linux
+   become: true
+   
+
+   tasks:
+     - name: install nginx package on Redhat 
+       yum:
+         name: nginx
+         update_cache: yes
+         state: present
+       when: ansible_distribution == 'RedHat'
+       notify: Restart-nginx
+
+     - name: install nginx package on Ubuntu
+       apt:
+         name: nginx
+         update_cache: yes
+         state: present
+       when: ansible_distribution == 'Ubuntu'
+       notify: Restart-nginx
+
+     
+   handlers:
+     - name: Restart-nginx
+       service:
+          name: nginx
+          state: restarted

@@ -1,0 +1,16 @@
+---
+-
+   hosts: linux
+   tasks:
+      - name: Jinja2 filters
+        debug:
+          msg: > 
+                  ---=== Ansible jinja2 filters ===---
+                  --== min [1,2,3,4,5,6] ==--
+                  {{ [1,2,3,4,5,6] | min }}
+                  --== max [12,3,4,5,6] ==--
+                  {{[12,3,4,5,6]|max}}
+                  --== flaten ==--
+                  {{ [3, [4, 2] ] | flatten }}
+
+...

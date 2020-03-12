@@ -1,0 +1,20 @@
+---
+-
+   hosts: linux
+
+   tasks:
+      - name: Ansible Jinja2 if
+        debug:
+          msg: >
+                --== Ansible Jinja2 if statement ==--
+                {# if the hostname is  13.232.252.149, include a message -#}
+                {% if ansible_hostname == "ansible-c" -%}
+                      This is ubuntu "{{ ansible_hostname }}"
+                      {% elif ansible_hostname == "redhat" -%}
+                       this is redhat "{{ ansible_hostname}}"
+
+                      {% else -%}
+                      this is old "{{ ansible_hostname }}"
+
+                {% endif%}
+...

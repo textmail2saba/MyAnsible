@@ -1,0 +1,7 @@
+#!/bin/bash
+SERIAL_NUM=$(sudo dmidecode | grep "Serial Number" | head -n1)
+cat <<EOF
+{
+"$SERIAL_NUM"
+}
+EOF

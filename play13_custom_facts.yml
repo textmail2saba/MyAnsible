@@ -1,0 +1,13 @@
+---
+-
+  hosts: linux
+  tasks:
+    - name: Listing custom facts1
+      debug:
+        msg: "{{ ansible_local.getdate1.date }}"
+    - name: Listing custom facts2
+      debug:
+        msg: "{{ ansible_local.getdate2.date.date }}"
+    - name: hostvars with custom facts
+      debug:
+        msg: "{{ hostvar[ansible_hostname] }}"

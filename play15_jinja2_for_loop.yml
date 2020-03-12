@@ -1,0 +1,12 @@
+---
+-
+   hosts: linux
+   tasks:
+     - name: Jinja2 for loop
+       debug:
+         msg: > 
+               --== Ansible Jinja2 for statement ==--
+               {% for entry in ansible_all_ipv4_addresses -%}
+               IP address entry {{ loop.index }} = {{ entry }}
+               {% endfor %}
+...
